@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Benutzerverwaltung</h2>
+  
+    <form (submit)="addUser()" class="user-form">
+      <input type="text" placeholder="Name" [(ngModel)]="newUser.name" name="name" required />
+      <input type="email" placeholder="E-Mail" [(ngModel)]="newUser.email" name="email" required />
+      <button type="submit">Benutzer hinzufügen</button>
+    </form>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>E-Mail</th>
+          <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>
+            <input [(ngModel)]="user.name" />
+          </td>
+          <td>
+            <input [(ngModel)]="user.email" />
+          </td>
+          <td>
+            <button (click)="updateUser(user)">Update</button>
+            <button (click)="deleteUser(user)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
